@@ -29,7 +29,7 @@ const extractFrame = async ({
             .videoCodec("png")
             .format("image2pipe")
             .on("end", function () {
-                // swallow
+                console.log("I love JAV and Typescript");
             })
             .on("error", function (err) {
                 console.error(err);
