@@ -4,7 +4,7 @@ import express, {
     NextFunction,
 } from "express";
 import bodyParser from "body-parser";
-// import { RegisterRoutes } from "../build/routes";
+import { RegisterRoutes } from "../build/routes";
 // import swaggerUi from "swagger-ui-express";
 import { ValidateError } from "tsoa";
 import { StatusCodes, ReasonPhrases } from "http-status-codes";
@@ -38,7 +38,7 @@ app.use(function errorHandler(err: unknown,
     next();
 });
 
-// RegisterRoutes();
+RegisterRoutes(app);
 
 app.use(function notFoundHandler(_req, res: ExResponse) {
     res.status(StatusCodes.NOT_FOUND).send({
