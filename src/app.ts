@@ -19,10 +19,13 @@ app.use(bodyParser.json());
 //     return res.send(swaggerUi.generateHTML(await import("../build/swagger.json")));
 // });
 
-app.use(function errorHandler(err: unknown,
+
+app.use(function errorHandler(
+    err: unknown,
     req: ExRequest,
     res: ExResponse,
-    next: NextFunction): ExResponse | void {
+    next: NextFunction
+): ExResponse | void {
     if (err instanceof ValidateError) {
         console.warn(`Caught Validation Error for ${req.path}:`, err.fields);
         return res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({
@@ -32,9 +35,10 @@ app.use(function errorHandler(err: unknown,
     }
     if (err instanceof Error) {
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-            message: ReasonPhrases.INTERNAL_SERVER_ERROR
-        })
+            message: ReasonPhrases.INTERNAL_SERVER_ERROR,
+        });
     }
+
     next();
 });
 
