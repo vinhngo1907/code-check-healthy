@@ -2,6 +2,11 @@ import ffmpeg from "fluent-ffmpeg";
 import stream from "stream";
 import { ExtractFrameParams } from "./params";
 
+/**
+ * extract an frame image from a video at a specific timestamp
+ * @param videoUrl
+ * @param timestamp in seconds
+ */
 const extractFrame = async ({
     videoUrl,
     timestamp }: ExtractFrameParams): Promise<Buffer> => {

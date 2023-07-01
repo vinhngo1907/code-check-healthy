@@ -2,6 +2,9 @@ import { extractFrame } from "./processor";
 
 import { ExtractFrameParams } from "./params";
 
+/**
+ * VideoProcessingService contains a list of utilities to con
+ */
 export default class VideoProcessingService {
     public static async extracFrameInBase64(params: ExtractFrameParams): Promise<string> {
         const buffers: Buffer = await extractFrame(params);
